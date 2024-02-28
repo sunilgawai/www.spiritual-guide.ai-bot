@@ -1,20 +1,30 @@
-import Link from "next/link";
-import React from "react";
-import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import { UserAccountNav } from "./user-account-nav";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
-const Socials = () => {
+const Socials = async () => {
+	const session = await getServerSession(authOptions);
 	return (
 		<nav className="flex gap-4 items-center">
-			<Link
-				href="/login"
+			{session?.user ? (
+				<UserAccountNav user={session.user} />
+			) : (
+				<Link href="/signin" className={buttonVariants()}>
+					Sign In
+				</Link>
+			)}
+			{/* <Link
+				href="/signin"
 				className={cn(
 					buttonVariants({ variant: "default", size: "sm" }),
 					"px-4"
 				)}
 			>
 				Sign In
-			</Link>
+			</Link> */}
 			{/* <Link
 						href="/register"
 						className={cn(

@@ -2,7 +2,7 @@ import { mainConfig } from "@/config/main";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { MainNav } from "./main-nav";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button"; 
 import Socials from "./socials";
 
 const SiteHeader = () => {
