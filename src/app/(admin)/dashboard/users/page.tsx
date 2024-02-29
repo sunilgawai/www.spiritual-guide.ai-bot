@@ -1,13 +1,10 @@
 "use client";
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
-// import CategoryForm from "@/components/forms/category-form";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { DashboardShell } from "@/components/shell";
 import { CategoriesColumns } from "@/components/tables/categories-column";
 import CategoriesTable from "@/components/tables/categories-table";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 const categories: {
 	id: number;
@@ -42,28 +39,14 @@ const categories: {
 ];
 
 const UsersPage = () => {
-	const [form_mode, setFormMode] = useState<"create" | "update">("create");
-	const [form_visible, setFormVisible] = useState<boolean>(false);
-	const router = useRouter();
-
 	return (
 		<DashboardShell>
 			<DashboardHeader
 				heading="Categories"
 				text="You can create and manage categories directly through the table."
 			>
-				{!form_visible ? (
-					<Button onClick={() => setFormVisible(!form_visible)}>
-						Create Category
-					</Button>
-				) : (
-					<Button onClick={() => setFormVisible(!form_visible)}>
-						Cancel Operation
-					</Button>
-				)}
+				<Button>Create User</Button>
 			</DashboardHeader>
-
-			{/* {form_visible && <CategoryForm form_mode={form_mode} />} */}
 
 			{categories.length ? (
 				<CategoriesTable columns={CategoriesColumns} data={categories} />
@@ -74,9 +57,7 @@ const UsersPage = () => {
 					<EmptyPlaceholder.Description>
 						You don&apos;t have any category yet. Start creating content.
 					</EmptyPlaceholder.Description>
-					<Button onClick={() => router.push("/create")} variant="outline">
-						Create Category
-					</Button>
+					<Button variant="outline">Create User</Button>
 				</EmptyPlaceholder>
 			)}
 		</DashboardShell>
