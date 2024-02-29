@@ -13,15 +13,15 @@ export const metadata = {
 export default async function DashboardPage() {
 	return (
 		<DashboardShell>
-			<DashboardHeader heading="Posts" text="Create and manage posts.">
+			<DashboardHeader heading="Statistics" text="View and manage Application.">
 				<Button>Create</Button>
 			</DashboardHeader>
 			<div>
 				<EmptyPlaceholder>
 					<EmptyPlaceholder.Icon name="post" />
-					<EmptyPlaceholder.Title>No posts created</EmptyPlaceholder.Title>
+					<EmptyPlaceholder.Title>No Stats Available</EmptyPlaceholder.Title>
 					<EmptyPlaceholder.Description>
-						You don&apos;t have any posts yet. Start creating content.
+						You don&apos;t have any stats yet.
 					</EmptyPlaceholder.Description>
 					<Button>Create</Button>
 				</EmptyPlaceholder>
