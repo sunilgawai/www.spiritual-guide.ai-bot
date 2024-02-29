@@ -16,24 +16,6 @@ const Socials = async () => {
 					Sign In
 				</Link>
 			)}
-			{/* <Link
-				href="/signin"
-				className={cn(
-					buttonVariants({ variant: "default", size: "sm" }),
-					"px-4"
-				)}
-			>
-				Sign In
-			</Link> */}
-			{/* <Link
-						href="/register"
-						className={cn(
-							buttonVariants({ variant: "default", size: "sm" }),
-							"px-4"
-						)}
-					>
-						Register
-					</Link> */}
 		</nav>
 	);
 };

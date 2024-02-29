@@ -1,0 +1,16 @@
+
+Todo:
+  ☐ Login and Registration - Social Media Login only
+  @low 
+
+  Todo:
+    ☐ Payment gateway has to be integrated in Subscription Section
+    @high 
+
+  Todo: (3)
+    ☐ API’s for Chat Section - https://docs.inworld.ai/docs/tutorial-api 
+    @high 
+
+  Todo: (4)
+  ☐ Backend Admin portal is needed to limit the API limit and also get API metrics, 
+  @high 
