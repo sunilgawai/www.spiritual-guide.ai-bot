@@ -1,4 +1,5 @@
 import {
+  Activity,
   AlertTriangle,
   ArrowRight,
   Check,
@@ -22,6 +23,7 @@ import {
   Trash,
   Twitter,
   User,
+  Users,
   X,
   type Icon as LucideIcon,
 } from "lucide-react"
@@ -44,6 +46,8 @@ export const Icons = {
   add: Plus,
   warning: AlertTriangle,
   user: User,
+  users: Users,
+  dashboard: Activity,
   arrowRight: ArrowRight,
   help: HelpCircle,
   pizza: Pizza,

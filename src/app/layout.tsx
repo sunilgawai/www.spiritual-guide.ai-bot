@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import SiteHeader from "@/components/site-header";
 import { Toaster } from "@/components/ui/toaster";
+import { SiteFooter } from "@/components/site-footer";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
 				<SiteHeader />
 				{children}
 				<Toaster />
+				<SiteFooter className="border-t" />
 			</body>
 		</html>
 	);
