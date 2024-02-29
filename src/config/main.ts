@@ -18,5 +18,9 @@ export const mainConfig: MarketingConfig = {
 			title: "Contact Us",
 			href: "#contact",
 		},
+		{
+			title: "Admin",
+			href: "/dashboard",
+		},
 	],
 };
