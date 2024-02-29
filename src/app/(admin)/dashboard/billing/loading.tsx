@@ -1,5 +1,5 @@
-import { CardSkeleton } from "@/components/card-skeleton"
-import { DashboardHeader } from "@/components/header"
+// import { CardSkeleton } from "@/components/card-skeleton"
+import { DashboardHeader } from "@/components/dashboard-header"
 import { DashboardShell } from "@/components/shell"
 
 export default function DashboardBillingLoading() {
@@ -10,7 +10,7 @@ export default function DashboardBillingLoading() {
         text="Manage billing and your subscription plan."
       />
       <div className="grid gap-10">
-        <CardSkeleton />
+        {/* <CardSkeleton /> */}
       </div>
     </DashboardShell>
   )
