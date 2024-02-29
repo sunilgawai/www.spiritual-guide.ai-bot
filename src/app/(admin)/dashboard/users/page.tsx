@@ -2,39 +2,44 @@
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { DashboardShell } from "@/components/shell";
-import { CategoriesColumns } from "@/components/tables/categories-column";
-import CategoriesTable from "@/components/tables/categories-table";
+import { UsersColumns } from "@/components/tables/users-column";
 import { Button } from "@/components/ui/button";
+import UsersTable from "@/components/tables/users-table";
 
-const categories: {
+const users: {
 	id: number;
 	name: string;
+	username: string;
 	image: string;
-	status: boolean;
+	emailVerified: boolean;
 }[] = [
 	{
 		id: 1,
-		name: "Pizzas",
+		name: "John Cena",
+		username: "johncena",
 		image: "🍕",
-		status: true,
+		emailVerified: true,
 	},
 	{
 		id: 2,
-		name: "Drinks",
+		name: "The Rock",
+		username: "therock",
 		image: "🍷",
-		status: true,
+		emailVerified: true,
 	},
 	{
 		id: 3,
-		name: "Snacks",
+		name: "Roman Reign",
+		username: "romanreign",
 		image: "🍟",
-		status: true,
+		emailVerified: true,
 	},
 	{
 		id: 4,
-		name: "Sea Food",
+		name: "Dean Ambrios",
+		username: "deanambrios",
 		image: "🦞",
-		status: false,
+		emailVerified: false,
 	},
 ];
 
@@ -42,14 +47,14 @@ const UsersPage = () => {
 	return (
 		<DashboardShell>
 			<DashboardHeader
-				heading="Categories"
-				text="You can create and manage categories directly through the table."
+				heading="Your Registered Users"
+				text="You can view and manage users through the table."
 			>
 				<Button>Create User</Button>
 			</DashboardHeader>
 
-			{categories.length ? (
-				<CategoriesTable columns={CategoriesColumns} data={categories} />
+			{users.length ? (
+				<UsersTable columns={UsersColumns} data={users} />
 			) : (
 				<EmptyPlaceholder>
 					<EmptyPlaceholder.Icon name="post" />
