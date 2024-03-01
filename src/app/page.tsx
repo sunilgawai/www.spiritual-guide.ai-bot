@@ -1,6 +1,12 @@
 import openGraphImage from "@/assets/opengraph-image.jpg";
 // import { CheckIcon, LocateIcon, MailboxIcon, PhoneIcon } from "lucide-react";
 
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -10,14 +16,9 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
 import { CheckIcon, LocateIcon, MailboxIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = () => {
 	return (
@@ -35,7 +36,7 @@ const Home = () => {
 								meditations, and interactive lessons.
 							</p>
 							<Button className="mt-6" variant="default">
-								Start Chatting
+							<Link href="/chat">Start Chatting</Link>
 							</Button>
 						</div>
 						<div className="lg:col-span-2">
