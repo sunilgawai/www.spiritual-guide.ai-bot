@@ -36,6 +36,8 @@ import {
 import { EmotionsMap } from "@/lib/enums";
 import { FC, useCallback, useState } from "react";
 import { Input } from "../ui/input";
+import { ChatHistory } from "./chat-history";
+import { CHAT_VIEW } from "@/types/chat-types";
 
 interface ChatProps {
   characters: Character[];
@@ -225,14 +227,13 @@ const ChatWindow: FC<ChatProps> = (props) => {
             </SelectContent>
           </Select>
         </div>
-        <div className="p-4 space-y-4">
-          <p>
-            Now moving to the The White Rabbit's Shop. The White Rabbit and are
-            in the White Rabbit's shop, where they sell pocket watches to
-            visitors. The shop is lined with countless watches of all styles,
-            sizes and colors.
-          </p>
-        </div>
+        <ChatHistory
+          characters={props.characters}
+          chatView={CHAT_VIEW.TEXT}
+          emotions={props.emotions}
+          history={props.chatHistory}
+          onInteractionEnd={setIsInteractionEnd}
+        />
       </CardContent>
       <CardFooter className="flex flex-col items-center justify-between p-4 border-t">
         <Textarea />
