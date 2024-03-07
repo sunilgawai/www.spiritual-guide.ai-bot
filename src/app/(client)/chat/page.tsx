@@ -1,5 +1,6 @@
 "use client";
 import ChatWindow from "@/components/chat/chat-window";
+import { EmotionsMap } from "@/lib/enums";
 import { InworldService } from "@/lib/inworld-connection";
 import {
   AdditionalPhonemeInfo,
@@ -10,17 +11,13 @@ import {
   InworldConnectionService,
   InworldPacket,
 } from "@inworld/web-core";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface CurrentContext {
   characters: Character[];
   chatting: boolean;
   connection?: InworldConnectionService;
 }
-
-interface EmotionsMap {
-    [key: string]: EmotionEvent;
-  }
 
 const ChatPage = () => {
   // const [bodyTexture, setBodyTexture] = useState(BODY_TEXTURE_TYPE.WOOD1);
@@ -35,7 +32,7 @@ const ChatPage = () => {
   const [phonemes, setPhonemes] = useState<AdditionalPhonemeInfo[]>([]);
   const [emotionEvent, setEmotionEvent] = useState<EmotionEvent>();
   const [avatars, setAvatars] = useState<string[]>([]);
-    const [emotions, setEmotions] = useState<EmotionsMap>({});
+  const [emotions, setEmotions] = useState<EmotionsMap>({});
 
   const stateRef = useRef<CurrentContext>();
   stateRef.current = {
@@ -59,12 +56,12 @@ const ChatPage = () => {
       setPrevChatHistory([...prevChatHistory, ...chatHistory]);
       setChatHistory([]);
       setChatting(true);
-    //   setChatView(form.chatView!);
+      //   setChatView(form.chatView!);
 
-      const duration = 0
-      const ticks = 0
+      const duration = 0;
+      const ticks = 0;
       const previousDialog: DialogPhrase[] = [];
-      const textMode = true
+      const textMode = true;
 
       console.log("Connecting to Inworld Service");
       const service = new InworldService({
@@ -77,11 +74,11 @@ const ChatPage = () => {
         },
         ...(previousDialog.length && { continuation: { previousDialog } }),
         ...(previousState && { continuation: { previousState } }),
-        audioPlayback: {
-            stop: { duration, ticks },
-          },
-        sceneName: process.env.INWORLD_SCENE!,
-        playerName: process.env.INWORLD_SCENE!,
+        // audioPlayback: {
+        //   stop: { duration, ticks },
+        // },
+        sceneName: "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
+        playerName: "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
         onPhoneme: (phonemes: AdditionalPhonemeInfo[]) => {
           setPhonemes(phonemes);
         },
@@ -130,9 +127,22 @@ const ChatPage = () => {
     [chatHistory, connection, onHistoryChange, prevChatHistory, prevTranscripts]
   );
 
+  useEffect(() => {
+    openConnection();
+  }, []);
+
   return (
     <div className="container bg-green-200">
-      <ChatWindow />
+      {connection && (
+        <ChatWindow
+          connection={connection}
+          characters={characters}
+          chatHistory={chatHistory}
+          prevTranscripts={prevTranscripts}
+          emotions={emotions}
+          onRestore={openConnection}
+        />
+      )}
     </div>
   );
 };
