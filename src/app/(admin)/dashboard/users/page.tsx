@@ -1,10 +1,10 @@
-"use client";
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { DashboardShell } from "@/components/shell";
 import { UsersColumns } from "@/components/tables/users-column";
 import { Button } from "@/components/ui/button";
 import UsersTable from "@/components/tables/users-table";
+import AdminService from "@/services/admin-service";
 
 const users: {
 	id: number;
@@ -43,7 +43,10 @@ const users: {
 	},
 ];
 
-const UsersPage = () => {
+const UsersPage = async () => {
+    const response = await AdminService.getRegisteredUsers();
+    console.log(response);
+    
 	return (
 		<DashboardShell>
 			<DashboardHeader
@@ -53,14 +56,14 @@ const UsersPage = () => {
 				<Button>Create User</Button>
 			</DashboardHeader>
 
-			{users.length ? (
-				<UsersTable columns={UsersColumns} data={users} />
+			{response.result.length ? (
+				<UsersTable columns={UsersColumns} data={response.result} />
 			) : (
 				<EmptyPlaceholder>
 					<EmptyPlaceholder.Icon name="post" />
-					<EmptyPlaceholder.Title>No Category created</EmptyPlaceholder.Title>
+					<EmptyPlaceholder.Title>No Users available</EmptyPlaceholder.Title>
 					<EmptyPlaceholder.Description>
-						You don&apos;t have any category yet. Start creating content.
+						You don&apos;t have any users yet.
 					</EmptyPlaceholder.Description>
 					<Button variant="outline">Create User</Button>
 				</EmptyPlaceholder>
