@@ -178,28 +178,28 @@ const Home = () => {
 					</p>
 				</div>
 			</section>
-			<section className="py-12 sm:py-16 lg:py-24">
+			<section className=" py-12 sm:py-16 lg:py-24">
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-						<div className="lg:col-span-2">
-							<h2 className="text-2xl font-bold">Get in Touch</h2>
-							<p className="mt-4 text-base text-gray-600">
+						<div className="lg:col-span-3">
+							<h2 className="text-4xl font-bold">Get in Touch</h2>
+							<p className="mt-4 text-xl text-gray-600">
 								Have questions or need assistance? Contact us today.
 							</p>
-							<div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
-								<div>
+							<div className="mt-6 flex flex-row items-center justify-between">
+								<div className="">
 									<MailboxIcon className="text-gray-900" />
 									<a className="block mt-2 text-sm text-gray-700" href="#">
 										info@example.com
 									</a>
 								</div>
-								<div>
+								<div className="">
 									<PhoneIcon className="text-gray-900" />
 									<a className="block mt-2 text-sm text-gray-700" href="#">
 										+1 234 567 8900
 									</a>
 								</div>
-								<div>
+								<div className="">
 									<LocateIcon className="text-gray-900" />
 									<address className="mt-2 not-italic text-sm text-gray-700">
 										1234 Rama St, Suite 1000
@@ -210,7 +210,7 @@ const Home = () => {
 							</div>
 						</div>
 						<div>
-							<img
+							{/* <img
 								alt="Contact"
 								className="h-48 w-full object-cover rounded-md"
 								height="200"
@@ -220,7 +220,7 @@ const Home = () => {
 									objectFit: "cover",
 								}}
 								width="300"
-							/>
+							/> */}
 						</div>
 					</div>
 				</div>

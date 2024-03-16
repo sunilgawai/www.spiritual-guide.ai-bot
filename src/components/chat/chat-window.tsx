@@ -38,6 +38,7 @@ import { FC, useCallback, useState } from "react";
 import { Input } from "../ui/input";
 import { ChatHistory } from "./chat-history";
 import { CHAT_VIEW } from "@/types/chat-types";
+import ChatForm from "./chat-form";
 
 interface ChatProps {
   characters: Character[];
@@ -248,11 +249,11 @@ const ChatWindow: FC<ChatProps> = (props) => {
             <SendIcon />
           </Button>
         </div>
-        {/* <div className="w-full">
-					<Input className="flex-1" placeholder="Message The White Rabbit" />
-					<Button className="ml-2">Send</Button>
-				</div>
-				<ChatForm /> */}
+        <div className="w-full">
+          <Input className="flex-1" placeholder="Message The White Rabbit" />
+          <Button className="ml-2">Send</Button>
+        </div>
+        <ChatForm />
         <Input onChange={(e) => setText(e.target.value)} />
         <Button onClick={() => handleSend()}>Send Message</Button>
         <Button onClick={() => startRecording()}>startRecording</Button>

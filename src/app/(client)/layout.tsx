@@ -14,7 +14,7 @@ const ClientLayout = async ({ children }: DashboardLayoutProps) => {
 
   return (
     <div className="flex min-h-screen w-full flex-col space-y-6 p-24">
-      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
+      <div className="container grid flex-1 gap-12">
         {/* <aside className="hidden w-[200px] flex-col md:flex">
 					<DashboardNav items={dashboardConfig.sidebarNav} />
 				</aside> */}
