@@ -1,5 +1,6 @@
 "use client";
 import ChatWindow from "@/components/chat/chat-window";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { EmotionsMap } from "@/lib/enums";
 import { InworldService } from "@/lib/inworld-connection";
 import {
@@ -11,6 +12,7 @@ import {
   InworldConnectionService,
   InworldPacket,
 } from "@inworld/web-core";
+import { GaugeIcon, PanelTopCloseIcon, UserIcon } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 interface CurrentContext {
@@ -77,8 +79,10 @@ const ChatPage = () => {
         // audioPlayback: {
         //   stop: { duration, ticks },
         // },
-        sceneName: "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
-        playerName: "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
+        sceneName:
+          "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
+        playerName:
+          "workspaces/default-rlxw0tuke-_67nkok2qq5w/characters/game_master",
         onPhoneme: (phonemes: AdditionalPhonemeInfo[]) => {
           setPhonemes(phonemes);
         },
@@ -133,6 +137,31 @@ const ChatPage = () => {
 
   return (
     <div className="container bg-green-200">
+      <div className="w-full border-b py-4 px-16 flex flex-col items-center justify-between">
+        <Avatar>
+          <AvatarImage
+            alt="The White Rabbit"
+            src="/placeholder.svg?height=32&width=32"
+          />
+          <AvatarFallback>WR</AvatarFallback>
+        </Avatar>
+        <p className="font-semibold text-base leading-4">
+          Scene: The White Rabbit's Shop
+        </p>
+        <div className="flex items-center space-x-2">
+          <GaugeIcon className="text-gray-500" />
+          <UserIcon className="text-gray-500" />
+          <PanelTopCloseIcon className="text-gray-500" />
+        </div>
+      </div>
+      <ChatWindow
+        connection={connection}
+        characters={characters}
+        chatHistory={chatHistory}
+        prevTranscripts={prevTranscripts}
+        emotions={emotions}
+        onRestore={openConnection}
+      />
       {connection && (
         <ChatWindow
           connection={connection}

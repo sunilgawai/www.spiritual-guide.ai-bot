@@ -2,6 +2,7 @@
 
 import pizza from "@/assets/pizza.png";
 import { CaretSortIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { Button } from "../ui/button";
@@ -13,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { Icons } from "../icons";
 
 export type Category = {
   id: number;
@@ -61,8 +63,14 @@ export const UsersColumns: ColumnDef<Category>[] = [
       );
     },
     cell: ({ row }) => (
+      <Avatar>
+        <AvatarFallback>
+          <span className="sr-only">{row.getValue("username")}</span>
+          <Icons.user className="h-8 w-8" />
+        </AvatarFallback>
+      </Avatar>
       // <div className="font-medium text-lg">{row.getValue("image")}</div>
-      <Image src={pizza} alt="image" width={60} />
+      //   <Image src={pizza} alt="image" width={60} />
     ),
   },
   {
@@ -121,14 +129,12 @@ export const UsersColumns: ColumnDef<Category>[] = [
     header: "User Role",
     cell: ({ row }) => (
       <div className="capitalize">
-        {row.getValue("role") === 'customer' ? (
+        {row.getValue("role") === "customer" ? (
           <span className="py-1.5 px-4 rounded-md font-medium text-center">
             Customer
           </span>
         ) : (
-          <span className="py-1.5 px-4 rounded-md font-medium">
-            Admin
-          </span>
+          <span className="py-1.5 px-4 rounded-md font-medium">Admin</span>
         )}
       </div>
     ),
